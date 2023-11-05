@@ -5,6 +5,7 @@ import threading
 from .utils import *
 
 def main():
+    # threading.Thread(target=block_mouse).start()
     threading.Thread(target=block_keyboard).start()
     threading.Thread(target=show_error).start()
 

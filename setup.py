@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="bsod",
-    version="0.1.1",
+    version="0.1.2",
     author="arpy8",
     author_email="arpitsengar99@gmail.com",
     description="Blue Screen of Death",

@@ -1,10 +1,10 @@
 import sys
+import time
 import pygame
 import keyboard
+import pyautogui
 import pkg_resources
 import win32gui, win32con
-import pyautogui
-import time
 
 
 def path_convertor(path):

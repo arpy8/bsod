@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="bsod",
-    version="0.1.2",
+    version="0.1.3",
     author="arpy8",
     author_email="arpitsengar99@gmail.com",
     description="Blue Screen of Death",
@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/arpy8/bsod",
     packages=find_packages(),
-    install_requires=["pygame", "keyboard", "pywin32"],
+    install_requires=["pygame", "keyboard", "pywin32", "pyautogui"],
     entry_points={
         "console_scripts": [
             "bsod=bsod.main:main",

@@ -1,2 +1,0 @@
-[console_scripts]
-bsod = bsod.main:main

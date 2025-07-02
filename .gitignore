@@ -1,2 +1,6 @@
 pypi.txt
 /.venv
+
+dist/
+build/
+__pycache__/
